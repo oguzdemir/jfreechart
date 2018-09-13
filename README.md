@@ -1,3 +1,20 @@
+Test Splitter - Trials on JFreeChart
+==========
+__[ValueMarkerTest](src/test/java/org/jfree/chart/plot/ValueMarkerTest.java)__ is splitted into 2. 
+
+When the modified `testGetSetValue` method is executed, following __[snapshot](snapshots/out_ValueMarkerTest_testGetSetValue_1.xml)__ file is generated.
+
+The test `generatedU2` reads from that snapshot file and restores the `lastEvent` and `ValueMarker m` objects. 
+
+However, the listener information is not recorded properly and could not be restored, so the `generatedU2` fails. 
+
+Possible causes for the error: 
+* Since __[Marker](src/main/java/org/jfree/chart/plot/Marker.java)__ class (superclass 
+of __[ValueMarker](src/main/java/org/jfree/chart/plot/ValueMarker.java)__) is already serializable 
+and has own `read/writeObject` methods, the listener information is lost in those methods.
+* `listenerList` of `Marker` class is declared as `transient`. (We already handled `transient` fields in Splitter)
+* `EventListenerList` is already serializable too, but seems like the `read/writeObject` methods won't cause a data loss.
+
 JFreeChart
 ==========
 
