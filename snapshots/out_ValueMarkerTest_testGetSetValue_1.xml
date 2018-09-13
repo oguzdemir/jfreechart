@@ -1,0 +1,80 @@
+<list>
+  <null/>
+  <org.jfree.chart.plot.ValueMarker serialization="custom">
+    <org.jfree.chart.plot.Marker>
+      <default>
+        <alpha>0.8</alpha>
+        <labelAnchor>TOP_LEFT</labelAnchor>
+        <labelBackgroundColor>
+          <red>100</red>
+          <green>100</green>
+          <blue>100</blue>
+          <alpha>100</alpha>
+        </labelBackgroundColor>
+        <labelFont>
+          <superscript class="null"/>
+          <tracking class="null"/>
+          <size class="float">9.0</size>
+          <weight class="null"/>
+          <transform class="null"/>
+          <posture class="null"/>
+          <width class="null"/>
+          <family class="string">SansSerif</family>
+        </labelFont>
+        <labelOffset>
+          <unitType>ABSOLUTE</unitType>
+          <top>3.0</top>
+          <left>3.0</left>
+          <bottom>3.0</bottom>
+          <right>3.0</right>
+        </labelOffset>
+        <labelOffsetType>
+          <name>CONTRACT</name>
+        </labelOffsetType>
+        <labelTextAnchor>
+          <name>TextAnchor.CENTER</name>
+        </labelTextAnchor>
+      </default>
+      <boolean>false</boolean>
+      <java-class>java.awt.Color</java-class>
+      <awt-color>
+        <red>128</red>
+        <green>128</green>
+        <blue>128</blue>
+        <alpha>255</alpha>
+      </awt-color>
+      <boolean>false</boolean>
+      <java-class>java.awt.BasicStroke</java-class>
+      <float>0.5</float>
+      <int>2</int>
+      <int>0</int>
+      <float>10.0</float>
+      <null/>
+      <float>0.0</float>
+      <boolean>false</boolean>
+      <java-class>java.awt.Color</java-class>
+      <awt-color reference="../awt-color"/>
+      <boolean>false</boolean>
+      <java-class>java.awt.BasicStroke</java-class>
+      <float>0.5</float>
+      <int>2</int>
+      <int>0</int>
+      <float>10.0</float>
+      <null/>
+      <float>0.0</float>
+      <boolean>false</boolean>
+      <java-class>java.awt.Color</java-class>
+      <awt-color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+        <alpha>255</alpha>
+      </awt-color>
+    </org.jfree.chart.plot.Marker>
+    <org.jfree.chart.plot.ValueMarker>
+      <default>
+        <value>1.1</value>
+      </default>
+    </org.jfree.chart.plot.ValueMarker>
+  </org.jfree.chart.plot.ValueMarker>
+</list>

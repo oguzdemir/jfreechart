@@ -42,22 +42,18 @@
  * 08-Oct-2007 : Added test1808376() method (DG);
  *
  */
-
 package org.jfree.chart.plot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Stroke;
-
 import org.jfree.chart.TestUtils;
-
 import org.jfree.chart.event.MarkerChangeEvent;
 import org.jfree.chart.event.MarkerChangeListener;
 import org.jfree.chart.ui.LengthAdjustmentType;
@@ -74,116 +70,12 @@ public class ValueMarkerTest implements MarkerChangeListener {
     MarkerChangeEvent lastEvent;
 
     /**
-     * Confirm that the equals method can distinguish all the required fields.
+     * testEquals, testCloning, testSerialization, test1802195, test1808376 are deleted for simplicity.
      */
-    @Test
-    public void testEquals() {
-
-        Marker m1 = new ValueMarker(45.0);
-        Marker m2 = new ValueMarker(45.0);
-        assertTrue(m1.equals(m2));
-        assertTrue(m2.equals(m1));
-
-        m1.setPaint(new GradientPaint(1.0f, 2.0f, Color.GREEN,
-                3.0f, 4.0f, Color.RED));
-        assertFalse(m1.equals(m2));
-        m2.setPaint(new GradientPaint(1.0f, 2.0f, Color.GREEN,
-                3.0f, 4.0f, Color.RED));
-        assertTrue(m1.equals(m2));
-
-        BasicStroke stroke = new BasicStroke(2.2f);
-        m1.setStroke(stroke);
-        assertFalse(m1.equals(m2));
-        m2.setStroke(stroke);
-        assertTrue(m1.equals(m2));
-
-        m1.setOutlinePaint(new GradientPaint(4.0f, 3.0f, Color.YELLOW,
-                2.0f, 1.0f, Color.WHITE));
-        assertFalse(m1.equals(m2));
-        m2.setOutlinePaint(new GradientPaint(4.0f, 3.0f, Color.YELLOW,
-                2.0f, 1.0f, Color.WHITE));
-        assertTrue(m1.equals(m2));
-
-        m1.setOutlineStroke(stroke);
-        assertFalse(m1.equals(m2));
-        m2.setOutlineStroke(stroke);
-        assertTrue(m1.equals(m2));
-
-        m1.setAlpha(0.1f);
-        assertFalse(m1.equals(m2));
-        m2.setAlpha(0.1f);
-        assertTrue(m1.equals(m2));
-
-        m1.setLabel("New Label");
-        assertFalse(m1.equals(m2));
-        m2.setLabel("New Label");
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelFont(new Font("SansSerif", Font.PLAIN, 10));
-        assertFalse(m1.equals(m2));
-        m2.setLabelFont(new Font("SansSerif", Font.PLAIN, 10));
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelPaint(new GradientPaint(1.0f, 2.0f, Color.BLUE,
-                3.0f, 4.0f, Color.YELLOW));
-        assertFalse(m1.equals(m2));
-        m2.setLabelPaint(new GradientPaint(1.0f, 2.0f, Color.BLUE,
-                3.0f, 4.0f, Color.YELLOW));
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelAnchor(RectangleAnchor.TOP_RIGHT);
-        assertFalse(m1.equals(m2));
-        m2.setLabelAnchor(RectangleAnchor.TOP_RIGHT);
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelTextAnchor(TextAnchor.BASELINE_RIGHT);
-        assertFalse(m1.equals(m2));
-        m2.setLabelTextAnchor(TextAnchor.BASELINE_RIGHT);
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelOffset(new RectangleInsets(10.0, 10.0, 10.0, 10.0));
-        assertFalse(m1.equals(m2));
-        m2.setLabelOffset(new RectangleInsets(10.0, 10.0, 10.0, 10.0));
-        assertTrue(m1.equals(m2));
-
-        m1.setLabelOffsetType(LengthAdjustmentType.EXPAND);
-        assertFalse(m1.equals(m2));
-        m2.setLabelOffsetType(LengthAdjustmentType.EXPAND);
-        assertTrue(m1.equals(m2));
-
-        m1 = new ValueMarker(12.3);
-        m2 = new ValueMarker(45.6);
-        assertFalse(m1.equals(m2));
-        m2 = new ValueMarker(12.3);
-        assertTrue(m1.equals(m2));
-
-    }
-
-    /**
-     * Confirm that cloning works.
-     */
-    @Test
-    public void testCloning() throws CloneNotSupportedException {
-        ValueMarker m1 = new ValueMarker(25.0);
-        ValueMarker m2 = (ValueMarker) m1.clone();
-        assertTrue(m1 != m2);
-        assertTrue(m1.getClass() == m2.getClass());
-        assertTrue(m1.equals(m2));
-    }
-
-   /**
-     * Serialize an instance, restore it, and check for equality.
-     */
-    @Test
-    public void testSerialization() {
-        ValueMarker m1 = new ValueMarker(25.0);
-        ValueMarker m2 = (ValueMarker) TestUtils.serialised(m1);
-        assertEquals(m1, m2);
-    }
-
     private static final double EPSILON = 0.000000001;
 
     /**
+     * This method is modified to generate snapshots for splitted tests.
      * Some checks for the getValue() and setValue() methods.
      */
     @Test
@@ -192,6 +84,29 @@ public class ValueMarkerTest implements MarkerChangeListener {
         m.addChangeListener(this);
         this.lastEvent = null;
         assertEquals(1.1, m.getValue(), EPSILON);
+        com.od.TestSplitter.Transformator.ObjectRecorder.writeObject("ValueMarkerTest_testGetSetValue", lastEvent, 1);
+        com.od.TestSplitter.Transformator.ObjectRecorder.writeObject("ValueMarkerTest_testGetSetValue", m, 1);
+        com.od.TestSplitter.Transformator.ObjectRecorder.finalizeWriting();
+        // Split Point: 1
+        m.setValue(33.3);
+        assertEquals(33.3, m.getValue(), EPSILON);
+        assertEquals(m, this.lastEvent.getMarker());
+    }
+
+
+    @Test
+    public void generatedU1() {
+        ValueMarker m = new ValueMarker(1.1);
+        m.addChangeListener(this);
+        this.lastEvent = null;
+        assertEquals(1.1, m.getValue(), EPSILON);
+    }
+
+    @Test
+    public void generatedU2() {
+        this.lastEvent = (MarkerChangeEvent) com.od.TestSplitter.Transformator.ObjectRecorder.readObject("ValueMarkerTest_testGetSetValue", 1);
+        ValueMarker m = (ValueMarker) com.od.TestSplitter.Transformator.ObjectRecorder.readObject("ValueMarkerTest_testGetSetValue", 1);
+        // Split Point: 1
         m.setValue(33.3);
         assertEquals(33.3, m.getValue(), EPSILON);
         assertEquals(m, this.lastEvent.getMarker());
@@ -206,38 +121,4 @@ public class ValueMarkerTest implements MarkerChangeListener {
     public void markerChanged(MarkerChangeEvent event) {
         this.lastEvent = event;
     }
-
-    /**
-     * A test for bug 1802195.
-     */
-    @Test
-    public void test1802195() {
-        ValueMarker m1 = new ValueMarker(25.0);
-        ValueMarker m2 = (ValueMarker) TestUtils.serialised(m1);
-        assertEquals(m1, m2);
-        try {
-            m2.setValue(-10.0);
-        }
-        catch (NullPointerException e) {
-            fail("No exception should be thrown.");
-        }
-    }
-
-    /**
-     * A test for bug report 1808376.
-     */
-    @Test
-    public void test1808376() {
-        Stroke stroke = new BasicStroke(1.0f);
-        Stroke outlineStroke = new BasicStroke(2.0f);
-        ValueMarker m = new ValueMarker(1.0, Color.RED, stroke, Color.BLUE,
-                outlineStroke, 0.5f);
-        assertEquals(1.0, m.getValue(), EPSILON);
-        assertEquals(Color.RED, m.getPaint());
-        assertEquals(stroke, m.getStroke());
-        assertEquals(Color.BLUE, m.getOutlinePaint());
-        assertEquals(outlineStroke, m.getOutlineStroke());
-        assertEquals(0.5f, m.getAlpha(), EPSILON);
-    }
-
 }
