@@ -12,13 +12,13 @@
           <alpha>100</alpha>
         </labelBackgroundColor>
         <labelFont>
-          <superscript class="null"/>
-          <tracking class="null"/>
           <size class="float">9.0</size>
-          <weight class="null"/>
           <transform class="null"/>
-          <posture class="null"/>
+          <tracking class="null"/>
           <width class="null"/>
+          <superscript class="null"/>
+          <posture class="null"/>
+          <weight class="null"/>
           <family class="string">SansSerif</family>
         </labelFont>
         <labelOffset>
